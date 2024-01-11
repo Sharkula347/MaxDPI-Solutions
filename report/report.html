@@ -1,0 +1,74 @@
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+h1.head {
+	text-align:right;
+	width:100%;
+	border-bottom: solid 1px;
+}
+
+h1 {
+	text-align:center;
+}
+
+div.tab {
+	text-align:center;
+}
+
+table th, table td {
+	border: 1px solid;
+}
+
+table {
+	border-spacing:0px;
+	width:100%;
+}
+
+div.legend {
+	bottom:0px;
+	width:100%;
+}
+
+div.leg {
+	text-align: -webkit-center;
+}
+
+div.date {
+	margin-top:20px;
+	text-align:right;
+	width:100%;
+	border-top: solid 1px;
+}
+
+</style>
+<head/>
+<body>
+<h1 class="head">MaxDPI</h1>
+<h1>Отчет об аномалиях трафика в файле<br>example.pcap</h1>
+<span>Вероятность наличия аномалий:</span>
+<div class="tab">
+	<table>
+		<tr><th>Аномалия</th><th>Протокол(-ы)</th><th>Вероятность, %</th></tr>
+		<tr><td>П</td><td>http(80)</td><td>92</td></tr><tr><td>БТ</td><td>tcp,udp</td><td>55</td></tr><tr><td>ОЗД</td><td>tcp(SYN,ACK)</td><td>96</td></tr>
+	</table>
+</div>
+<div class="legend">
+	<h2>Легенда</h2>
+	<div class="leg">
+	<table>
+		<tr><th>Краткое наименование</th><th>Полное название</th></tr>
+		<tr><td>П</td><td>Перебор</td></tr>
+		<tr><td>П+</td><td>Перебор с использованием xml-запроса</td></tr>
+		<tr><td>БТ</td><td>Безопасный трафик</td></tr>
+		<tr><td>ТК</td><td>Трафик криптомайнера</td></tr>
+		<tr><td>ОЗТ</td><td>Опасный зондирующий трафик</td></tr>
+		<tr><td>ФТ</td><td>Фоновый трафик</td></tr>
+	</table>
+	</div>
+</div>
+<div class="date">
+	<h3>Дата проверки: 21.06.2023</h3>
+</div>
+</body>
+</html>
