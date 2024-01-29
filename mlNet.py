@@ -9,7 +9,7 @@ RSEED = 50
 # Load in data
 df = pd.read_csv(r'C:\Users\kazar\OneDrive\Документы\Работа и учеба\ДГТУ_5_курс\2 сем\Кросс-платформенное программирование\По статье\HIKARI_DATASET\HIKARI_DATASET.csv', delimiter=";")
 
-# Full dataset: https://www.kaggle.com/cdc/behavioral-risk-factor-surveillance-system
+# Full dataset: https://zenodo.org/records/5199540#.Ygqmgi8RpQI
 
 # Extract the labels
 

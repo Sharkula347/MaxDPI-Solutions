@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import ttk
 import tkinter.filedialog as fd
 import os, random, time
+from mlNet import model
 
 option = 0
 
@@ -224,7 +225,7 @@ def show_wnd():
         sett = tk.Label(frame_top,justify="left",font=("Arial", 10), text="Исследуемые аномалии:"+" "*60+f"\n{parstr}")
         sett.grid(row=1,columnspan=10,column=0,padx=(10,10), pady=10)
 
-        btnN = ttk.Button(text="Запуск!", command=lambda:[main_wnd.destroy(),newopt(1)])
+        btnN = ttk.Button(text="Запуск!", command=lambda: [main_wnd.destroy(), newopt(1), model.predict()])
         btnN.place(x=405, y=350)
 
     if option == 3:
@@ -276,7 +277,7 @@ def show_wnd():
                 note['text']="Поиск опасного зондирующего трафика..."
                 progress['value'] += 100 / stages
                 main_wnd.update()
-                report_t = report_t + "<tr><td>ОЗД</td><td>tcp(SYN,ACK)</td><td>96</td></tr>"
+                report_t = report_t + "<tr><td>ОЗТ</td><td>tcp(SYN,ACK)</td><td>96</td></tr>"
                 time.sleep(random.randint(5, 15))
             if i==6 and params['sets'][i]!=0:
                 note['text']="Поиск фонового трафика..."
