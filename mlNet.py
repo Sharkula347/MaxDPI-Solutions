@@ -174,7 +174,7 @@ def plot_confusion_matrix(cm, classes,
 
 # Confusion matrix
 cm = confusion_matrix(test_labels, rf_predictions)
-plot_confusion_matrix(cm, classes = ['Poor Health', 'Good Health'],
-                      title = 'Health Confusion Matrix')
-plt.show();
+plot_confusion_matrix(cm, classes=['Poor Health', 'Good Health'],
+                      title='Health Confusion Matrix')
+plt.show()
 plt.savefig('cm.png')
