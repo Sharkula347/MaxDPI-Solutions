@@ -10,7 +10,7 @@ After that type the following comand in cmd or powershell:
 
 Now you can start the program by typing in cmd or powershell:
 
-```py
+```cmd
 cd <project_folder>
 python MaxDPI.py
 ```
