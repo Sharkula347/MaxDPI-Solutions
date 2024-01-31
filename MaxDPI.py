@@ -3,15 +3,24 @@ from tkinter import ttk
 import tkinter.filedialog as fd
 import os, random, time
 from mlNet import model
+import dpkt
+
+
+def pcap_parser(file):
+    with open(file, 'rb') as pcap:
+        return dpkt.pcap.Reader(file)
+
 
 option = 0
 
 params = {
-    'file_path':'',
-    'sets':[0,0,0,0,0,0]
+    'file_path': '',
+    'sets': [0, 0, 0, 0, 0, 0]
 }
 
-negs=[
+pcap_analyze = None
+
+negs = [
     "Перебор",
     "Перебор с использованием xml",
     "Безопасный трафик",
@@ -75,6 +84,7 @@ def show_wnd():
         var[0].set(fd.askopenfilename(title="Выберите файл",
                                       filetypes=(("Файл захвата пакетов", "*.pcap"), ("Все файлы", "*.*"))))
         params["file_path"] = var[0].get()
+        pcap_analyze = pcap_parser(params["file_path"])
 
     def val_ch(a,b,c):
         if var[0].get() == "" or not os.path.isfile(var[0].get()):
@@ -191,12 +201,6 @@ def show_wnd():
                             command=lambda:[std_chk()]))
         c[5].grid(row=5,column=0,padx=(0,134))
 
-        '''c.append(tk.Checkbutton(frame_top, text="Атака с внедрением исполняемого кода",
-                 variable=var[7],
-                 onvalue=1, offvalue=0,
-                            command=lambda:[std_chk()]))
-        c[6].grid(row=6,column=0,padx=(0,3))'''
-
 
         c_selall = tk.Checkbutton(main_wnd, text="Выбрать всё",
                  variable=selall,
@@ -290,7 +294,7 @@ def show_wnd():
         main_wnd.update()
         time.sleep(random.randint(5, 10))
         note['text'] = "Анализ завершен!"
-        btnR = ttk.Button(text="Просмотреть отчет", command=show_report)
+        btnR = ttk.Button(text="Просмотреть отчет", command=[show_report, pcap_analyze][0])
         btnR.place(x=365, y=350)
 
     main_wnd.resizable(width=False, height=False)
